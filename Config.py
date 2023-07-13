@@ -1,17 +1,17 @@
 import os
 
 class Config(object):
-    API_ID = int(os.environ.get("API_ID", "23863563"))
-    API_HASH = os.environ.get("API_HASH", "2923da75525a566b9e9bc964642ff921")
-    BOT_TOKEN = os.environ.get("BOT_TOKEN", "6379844676:AAGUNAgJaC2gr6Fmmv68R_YIIheV_sJfcUc")
-    STRING_SESSION = os.environ.get("STRING_SESSION", "1BVtsOJ8Buz8x0xP00M07Vsy-inXVkZeV-ArwbtwxiUtSkqIqc6Ff3d2Ivtszlf_H-UVUh3fL7UJ0BKOglYeR_yQ9O3JeSd3h_nyB1QKLBPGWTD1f6g2ZtEpKqLrf8d6B5Ekhh5v-8TAZ37NhKzIdW9AxHqTtRxiTq0i0_quxFXwY-_ROaTDIhS29Iizn8N6ad73io7JfU5bRQYp1Wg5qGlWd9YeNnkauoxkv71aTNPTfVCrePbf1Tuy_CyBUG37gFJ3SrKsIfUFxfLAAGxjVpr5SQFnqJe-rSAahuqOT1xBho67YE7fpRoHL-OUhIKXON79dsuEa5LJ_J8D727e3wfcO9DhDUBE=")
+    API_ID = int(os.environ.get("API_ID", "25144277"))
+    API_HASH = os.environ.get("API_HASH", "68c74c49b5da23e0d5b82ae84c6e1262")
+    BOT_TOKEN = os.environ.get("BOT_TOKEN", "6135924880:AAH7jJQtLpnyTENBTqeAdgDMBtzbvaK07vw")
+    STRING_SESSION = os.environ.get("STRING_SESSION", "1BVtsOJYBuxEThOKH9nsgFUU3lReabEJ_qJc23Y2npZTF7ibKnAo4hiSRb9GqsXRwmZeOriuHceL5-Cixh7GoocXXo3uw8WPWvtkviYJkNPjYxbpyv3kkFH81ZC5yyqDX9kOHyjkbZ73brPdbxfukDlG7IjqarE12TQBEAv7lHnHUYWK7PhC_z_4nucQcul_Amo1Y21ALkFEThNGWO1a7IpZrlMN6F5wseJHHNaSbDOMYDJ_AO8swREgKacrSvcua0ey71CmyUrnDXzbDjbxCCmOCab_rYYmf8tIiLKUGSE5f13yDzVcYqcDTh3QVsz0gCVFXzJ_kO6zALTHUI-JWTJw8wnt7drs=")
     MANAGEMENT_MODE = os.environ.get("MANAGEMENT_MODE", None)
     HEROKU_MODE = os.environ.get("HEROKU_MODE", None)
-    BOT_USERNAME = os.environ.get("BOT_USERNAME", "Alia_MusicBot")
+    BOT_USERNAME = os.environ.get("BOT_USERNAME", "breathrythm_MusicBot")
     SUPPORT = os.environ.get("SUPPORT", "TheSupportChat") # Your Support
     CHANNEL = os.environ.get("CHANNEL", "TheUpdatesChannel") # Your Channel
     START_IMG = os.environ.get("START_IMG", "https://telegra.ph/file/612b4483b2ed270c4070a.jpg")
     CMD_IMG = os.environ.get("CMD_IMG", "https://telegra.ph/file/66518ed54301654f0b126.png")
-    ASSISTANT_ID = int(os.environ.get("ASSISTANT_ID", "6343636554")) # telegram I'd not Username
+    ASSISTANT_ID = int(os.environ.get("ASSISTANT_ID", "6282624717")) # telegram I'd not Username
     AUTO_LEAVE_TIME = int(os.environ.get("AUTO_LEAVE_ASSISTANT_TIME", "54000")) # in seconds
     AUTO_LEAVE = os.environ.get('AUTO_LEAVING_ASSISTANT', None) # Change it to "True"
