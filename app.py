@@ -5,29 +5,25 @@ from telegram import Bot
 
 app = Flask(__name__)
 
-# Telegram bot token
-BOT_TOKEN = '6135924880:AAH7jJQtLpnyTENBTqeAdgDMBtzbvaK07vw'
+# Function to send the specific message to each group
+def send_specific_message_to_groups():
+    bot_token = '6135924880:AAH7jJQtLpnyTENBTqeAdgDMBtzbvaK07vw'
+    message = 'Hello Everyone 👋🏻'
 
-# URL to be posted
-URL = 'https://www.9987up.cc/#/register?r_code=3272217765'
-
-# Function to post the URL to groups
-def post_url_to_groups():
-    bot = Bot(token=BOT_TOKEN)
-    groups = bot.get_updates()
+    bot = telegram.Bot(token=bot_token)
+    groups = bot.getUpdates()  # Retrieve information about the groups the bot is a member of
 
     for group in groups:
         chat_id = group.effective_chat.id
-        bot.send_message(chat_id=chat_id, text=URL)
+        bot.send_message(chat_id=chat_id, text=message)
 
-# Schedule the URL posting every 3 minutes
-schedule.every(3).minutes.do(post_url_to_groups)
+# Schedule the message to be sent every hour
+schedule.every(1).minutes.do(send_specific_message_to_groups)
 
-# Run the bot
+# Run the timer
 while True:
     schedule.run_pending()
     time.sleep(1)
-
 
 
 @app.route('/')
