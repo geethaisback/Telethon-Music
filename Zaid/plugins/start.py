@@ -90,3 +90,4 @@ async def promo_command(event):
     while True:
         schedule.run_pending()
         time.sleep(1)
+        return
