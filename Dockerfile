@@ -10,4 +10,5 @@ COPY . /app/
 WORKDIR /app/
 RUN pip3 install -U -r requirements.txt
 RUN pip3 install schedule
+RUN pip3 install python-telegram-bot
 CMD bash start
