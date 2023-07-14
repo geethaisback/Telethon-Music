@@ -18,7 +18,7 @@ def send_specific_message_to_groups():
         bot.send_message(chat_id=chat_id, text=message)
 
 # Schedule the message to be sent every minute
-schedule.every(1).minute.do(send_specific_message_to_groups)
+schedule.every(1).minutes.do(send_specific_message_to_groups)
 
 # Run the timer
 while True:
