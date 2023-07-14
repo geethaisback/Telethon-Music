@@ -7,8 +7,8 @@ app = Flask(__name__)
 
 # Function to send the specific message to each group
 def send_specific_message_to_groups():
-    bot_token = '6135924880:AAH7jJQtLpnyTENBTqeAdgDMBtzbvaK07vw'
-    message = 'Hello Everyone 👋🏻'
+    bot_token = "6135924880:AAH7jJQtLpnyTENBTqeAdgDMBtzbvaK07vw"
+    message = "Hello Everyone 👋🏻"
 
     bot = telegram.Bot(token=bot_token)
     groups = bot.getUpdates()  # Retrieve information about the groups the bot is a member of
