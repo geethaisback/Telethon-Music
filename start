@@ -1,3 +1,4 @@
 git clone $REPO XYZ
 cd XYZ
 python3 -m Zaid
+python scheduler.py
