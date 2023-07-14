@@ -1,32 +1,29 @@
-from flask import Flask
+from flask import Flask, request
 import schedule
 import time
-from telegram import Bot
+import telegram
 
 app = Flask(__name__)
 
-# Telegram bot token
-BOT_TOKEN = '6135924880:AAH7jJQtLpnyTENBTqeAdgDMBtzbvaK07vw'
+bot_token = '6135924880:AAH7jJQtLpnyTENBTqeAdgDMBtzbvaK07vw'
+bot = telegram.Bot(token=bot_token)
 
-# Message to send
-message = 'Hello everyone'
+# Handler for the /run command
+@app.route('/run', methods=['POST'])
+def run_command():
+    message = request.get_json()['message']
+    command = message.get('text', '').lower()
 
-# Function to send the message
-def send_message():
-    bot = Bot(token=BOT_TOKEN)
-    groups = bot.get_updates()
+    # Check if the command is /run
+    if command == '/run':
+        # Execute your desired functionality or code here
+        # ...
+        # Example: Send a response message
+        chat_id = message['chat']['id']
+        response = 'Running the script!'
+        bot.send_message(chat_id=chat_id, text=response)
 
-    for group in groups:
-        chat_id = group.effective_chat.id
-        bot.send_message(chat_id=chat_id, text=message)
-
-# Schedule the message to be sent every minute
-schedule.every(1).minutes.do(send_message)
-
-# Run the scheduler
-while True:
-    schedule.run_pending()
-    time.sleep(1)
+    return 'OK'
 
 
 @app.route('/')
