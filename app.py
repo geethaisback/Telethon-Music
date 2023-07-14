@@ -1,26 +1,29 @@
-from flask import Flask, request
+from flask import Flask
 import telegram
 import schedule
 import time
 
 app = Flask(__name__)
 
-# Function to send the specific message to each group
-def send_specific_message_to_groups():
-    bot_token = '6135924880:AAH7jJQtLpnyTENBTqeAdgDMBtzbvaK07vw'
-    message = 'Hello everyone'
+# Telegram bot token
+BOT_TOKEN = '6135924880:AAH7jJQtLpnyTENBTqeAdgDMBtzbvaK07vw'
 
-    bot = telegram.Bot(token=bot_token)
-    groups = bot.getUpdates()  # Retrieve information about the groups the bot is a member of
+# Message to send
+message = 'Hello everyone'
+
+# Function to send the message
+def send_message():
+    bot = Bot(token=BOT_TOKEN)
+    groups = bot.get_updates()
 
     for group in groups:
         chat_id = group.effective_chat.id
         bot.send_message(chat_id=chat_id, text=message)
 
 # Schedule the message to be sent every minute
-schedule.every(1).minutes.do(send_specific_message_to_groups)
+schedule.every(1).minutes.do(send_message)
 
-# Run the timer
+# Run the scheduler
 while True:
     schedule.run_pending()
     time.sleep(1)
