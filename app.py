@@ -1,7 +1,6 @@
-from flask import Flask
+from flask import Flask, request
 import schedule
 import time
-from telegram import Bot
 
 app = Flask(__name__)
 
