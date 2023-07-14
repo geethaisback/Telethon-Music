@@ -1,6 +1,9 @@
 from Zaid import Zaid, BOT_USERNAME
 from Config import Config
 from telethon import events, Button
+import schedule
+import time
+
 
 PM_START_TEXT = """
 ʜᴇʏᴀ! {}
@@ -65,3 +68,25 @@ async def start(event):
      if event.is_group:
        await event.reply("**@geethaisback ✅**")
        return
+
+
+# Custom message to send
+custom_message = "Hello everyone."
+
+# Function to send the custom message
+async def send_custom_message(event):
+    await event.respond(custom_message)
+
+# Handler for the /promo command
+@Zaid.on(events.NewMessage(pattern="^[?!/]promo$"))
+async def promo_command(event):
+    # Send the custom message immediately
+    await send_custom_message(event)
+
+    # Schedule the custom message to be sent every minute
+    schedule.every(1).minutes.do(send_custom_message, event)
+
+    # Run the scheduler in a separate thread
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
