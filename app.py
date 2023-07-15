@@ -21,9 +21,7 @@ def callback_auto_message(context):
 # Define the command handler for starting the automatic messaging
 def start_auto_messaging(update, context):
     chat_id = update.message.chat_id
-    context.job_queue.run_repeating(callback_auto_message, interval=60, context=chat_id, name=str(chat_id))
-    # context.job_queue.run_once(callback_auto_message, 3600, context=chat_id)
-    # context.job_queue.run_daily(callback_auto_message, time=datetime.time(hour=9, minute=22), days=(0, 1, 2, 3, 4, 5, 6), context=chat_id)
+    context.job_queue.run_repeating(callback_auto_message, interval=60, first=0, context=chat_id, name=str(chat_id))
 
 # Define the command handler for stopping the automatic messaging
 def stop_notify(update, context):
@@ -33,7 +31,7 @@ def stop_notify(update, context):
     job[0].schedule_removal()
 
 # Create the updater and dispatcher
-updater = Updater(token=Config.BOT_TOKEN, use_context=True)
+updater = Updater(token='YOUR_BOT_TOKEN', use_context=True)
 dispatcher = updater.dispatcher
 
 # Add command handlers
@@ -42,6 +40,13 @@ dispatcher.add_handler(CommandHandler("stop_notify", stop_notify))
 
 # Start the bot
 updater.start_polling()
+
+# Schedule the first message immediately
+schedule.every().minute.do(callback_auto_message, context=None)
+
+# Run the scheduling loop
+while True:
+    schedule.run_pending()
 
 if __name__ == "__main__":
     app.run()
