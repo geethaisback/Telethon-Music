@@ -31,7 +31,7 @@ def stop_notify(update, context):
     job[0].schedule_removal()
 
 # Create the updater and dispatcher
-updater = Updater(token='YOUR_BOT_TOKEN', use_context=True)
+updater = Updater(token=Config.BOT_TOKEN, use_context=True)
 dispatcher = updater.dispatcher
 
 # Add command handlers
