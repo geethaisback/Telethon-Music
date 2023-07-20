@@ -56,40 +56,20 @@ async def _(event):
 @Zaid.on(events.NewMessage(pattern="^[?!/]register$"))
 async def start(event):
      if event.is_group:
-       await event.reply("**https://www.9987up.cc/#/register?r_code=3272217765 📲**")
+       await event.reply("**Register now!**",buttons=[
+        [Button.url("Register Here 🤍", f"http://www.9987up.cc/#/register?r_code=3272217765")]])
        return
 
 @Zaid.on(events.NewMessage(pattern="^[?!/]money$"))
 async def start(event):
      if event.is_group:
-       await event.reply("**@TCearningtownbygeeta 🌐**")
+       await event.reply("**I know you want to earn money, Come and join**",buttons=[
+        [Button.url("Check it out", f"https://t.me/TCearningtownbygeeta")]])
        return
 
-@Zaid.on(events.NewMessage(pattern="^[?!/]channel$"))
+@Zaid.on(events.NewMessage(pattern="^[?!/]contact$"))
 async def start(event):
      if event.is_group:
-       await event.reply("**@geethaisback ✅**")
+       await event.reply("**Contact Us Now**",buttons=[
+        [Button.url("Hello 📞", f"https://t.me/geethaisback")]])
        return
-
-
-# Custom message to send
-custom_message = "Hello everyone."
-
-# Function to send the custom message
-async def send_custom_message(event):
-    await event.respond(custom_message)
-
-# Handler for the /promo command
-@Zaid.on(events.NewMessage(pattern="^[?!/]promo$"))
-async def promo_command(event):
-    # Send the custom message immediately
-    await send_custom_message(event)
-
-    # Schedule the custom message to be sent every minute
-    schedule.every(1).minutes.do(send_custom_message, event)
-
-    # Run the scheduler in a separate thread
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
-        return
